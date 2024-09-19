@@ -1,0 +1,4 @@
+Course:  CSCB07 Fall 2024 UTSC
+Assignment: Lab 1
+Weight: 3 points
+Due date: Sep 22 2024
