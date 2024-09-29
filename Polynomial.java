@@ -204,13 +204,11 @@ public class Polynomial{
 		}
 		int final_exp[] = new int[r];
 		double final_coe[] =new double[r];
-		int j = 0;
-		while(result_coe[j]!=0||result_exp[j]!=0){
-			final_coe[j] = result_coe[j];
-			final_exp[j] = result_exp[j];
-			j++;
+		for(int i = 0 ; i<r;i++){
+			final_exp[i] = result_exp[i];
+			final_coe[i] = result_coe[i];
 		}
-		Polynomial final_p = new Polynomial(result_coe,result_exp);
+		Polynomial final_p = new Polynomial(final_coe,final_exp);
 		return final_p;
 	}
 	
