@@ -62,11 +62,25 @@ public class Polynomial{
 		 StringJoiner build = new StringJoiner("");
 		 for(int i = 0; i<this.exp.length;i++){
 			if(this.exp[i] == 0){
+				if(this.coe[i] < 0){
+				build.add("-");
 				build.add(Double.toString(this.coe[i]));
+				}else{
+				build.add(Double.toString(this.coe[i]));
+				}
 			}
 			
 			
-			else{build.add(Double.toString(this.coe[i]));
+			else{
+			if(this.coe[i] < 0){
+			build.add("-");
+			build.add(Double.toString(this.coe[i]));
+			build.add("x");
+			build.add(Integer.toString(this.exp[i]));
+			}
+			else{
+			build.add("+");
+			build.add(Double.toString(this.coe[i]));
 			build.add("x");
 			build.add(Integer.toString(this.exp[i]));
 			}
@@ -79,6 +93,7 @@ public class Polynomial{
     } catch (IOException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();
+	}
 	}
 	}
 	
@@ -98,12 +113,14 @@ public class Polynomial{
 		int r = 0;
 		for(int i =0; i<longest; i++){
 			if(i < shorter){
+				
 				if(this.exp[i] == to_add.exp[i]){
 					new_coe[r] = this.coe[i] + to_add.coe[i];
 					new_exp[r] = this.exp[i];
 					r++;
 				}
 				if(this.exp[i] < to_add.exp[i]){
+					
 					new_exp[r] = this.exp[i];
 					new_coe[r] = this.coe[i];
 					r++;
@@ -111,7 +128,8 @@ public class Polynomial{
 					new_coe[r] = to_add.coe[i];
 					r++;
 				}
-				if(this.exp[i] > to_add.exp[i]){}{
+				if(this.exp[i] > to_add.exp[i]){
+					
 					new_exp[r] = to_add.exp[i];
 					new_coe[r] = to_add.coe[i];
 					r++;
@@ -121,6 +139,7 @@ public class Polynomial{
 				}
 			}
 			else{
+				
 				if(longest == this.exp.length){
 					new_exp[r] = this.exp[i];
 					new_coe[r] = this.coe[i];
