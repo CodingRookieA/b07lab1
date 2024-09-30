@@ -185,15 +185,17 @@ public class Polynomial{
 				double coef = mult.coe[i]*this.coe[j];
 				int expo = mult.exp[i] + this.exp[j];
 				int n = 0;
+				boolean has_match = false;
 				while(n < r){
 					if(result_exp[n] == expo){
 						result_coe[n] = result_coe[n] + coef; 
 						n = r + 1;
+						has_match = true;
 					}
 					n++;
 				}
 			
-				if(n >= r){
+				if(has_match == false){
 					result_exp[r] = expo;
 					result_coe[r] = coef;
 					r++; 
@@ -202,9 +204,11 @@ public class Polynomial{
 		}
 		int final_exp[] = new int[r];
 		double final_coe[] =new double[r];
-		for(int i = 0 ; i<r;i++){
-			final_exp[i] = result_exp[i];
-			final_coe[i] = result_coe[i];
+		int j = 0;
+		while(result_coe[j]!=0||result_exp[j]!=0){
+			final_coe[j] = result_coe[j];
+			final_exp[j] = result_exp[j];
+			j++
 		}
 		Polynomial final_p = new Polynomial(result_coe,result_exp);
 		return final_p;
