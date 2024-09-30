@@ -208,7 +208,7 @@ public class Polynomial{
 		while(result_coe[j]!=0||result_exp[j]!=0){
 			final_coe[j] = result_coe[j];
 			final_exp[j] = result_exp[j];
-			j++
+			j++;
 		}
 		Polynomial final_p = new Polynomial(result_coe,result_exp);
 		return final_p;
